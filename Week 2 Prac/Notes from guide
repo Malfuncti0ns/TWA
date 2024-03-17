@@ -1,0 +1,7 @@
+Add tags to the sections of the websites for CSS
+Document will be for the whole page, the header has its own seperate font, it needs to inherit at a differnet stage.
+Should work after docment tags in CSS as its read from top to bottom, review how to link google fonts
+Images need to sit on left and right 25% each, remaining 50% is for the middle image
+Overall the requests are being made to make the text % of the screen size which will need to be reviewed, that won't be px sizing a believe but I think you can add a % to the code to update it
+
+Task is achieveable today.

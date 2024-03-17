@@ -1,0 +1,67 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 100%;
+    color: black;
+    line-height: 1.5;
+}
+
+/* As this is for the whole document, there isnt a need to give each part with style a class */
+
+h1 {
+    font-size: 300%;
+}
+
+h2 {
+    font-size: 220%;
+}
+
+h3 {
+    font-size: 180%;
+    margin-bottom: 0px;
+}
+
+h1, h4 {
+    color: #003980;
+}
+
+ol {
+    list-style-type: lower-roman;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.5;
+    margin-left: 30px;
+}
+
+/* Indented items is not part of the ordered list, it's a list item that needs to be adjusted */
+
+ol li {
+    text-indent: 30px;
+}
+
+/* Found at https://www.w3schools.com/cssref/sel_hover.php as I was unsure of the action item for the a tag */
+
+a:hover {
+    text-decoration: underline dotted;
+    color: #003980;
+}
+
+/* Need to add grid layout to what is known as the header section as requested, split into 3 sections for each image */
+
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto ;
+    gap: 10px;
+    border: 1px black;
+}
+
+.image {
+    border: 1px black;
+    align-self: center;
+}
+
+.heading {
+    border: 1px black;
+    grid-column: span 2;
+}
