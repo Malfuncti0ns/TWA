@@ -48,20 +48,30 @@ a:hover {
 
 /* Need to add grid layout to what is known as the header section as requested, split into 3 sections for each image */
 
-.header {
+.header-grid {
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto auto ;
+    grid-template-columns: auto 1fr 0fr;
+    grid-template-rows: auto auto auto;
     gap: 10px;
-    border: 1px black;
 }
 
-.image {
-    border: 1px black;
-    align-self: center;
+#image-left {
+    max-width: 100%;
+    background-color: yellow;
 }
 
-.heading {
-    border: 1px black;
-    grid-column: span 2;
+.heading h1, .heading h2 {
+    text-align: center;
+    margin-top: 0;
+    font-family: Oswald, Arial, sans-serif;
+    background-color: green;
 }
+.heading h2{
+    text-align: center;
+}
+
+#image-right {
+    max-width: 100%;
+    background-color: blue;
+}
+
