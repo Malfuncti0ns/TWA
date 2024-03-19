@@ -6,6 +6,10 @@ body {
     line-height: 1.5;
 }
 
+a {
+    color: black;
+}
+
 /* As this is for the whole document, there isnt a need to give each part with style a class */
 
 h1 {
@@ -51,20 +55,23 @@ a:hover {
     grid-template-columns: auto auto auto;
     gap: 10px;
     padding: 10px;
-}
-
-.item3 {
-    width: 25%;
-    grid-row-start: 1;
-    grid-row-end: 3;
+    justify-items: center;
 }
 
 .item1 {
     width: 25%;
     grid-row-start: 1;
     grid-row-end: 3;
+}
+
+.item3 {
+    width: 25%;
+    justify-content: center;
+    grid-row-start: 1;
+    grid-row-end: 3;
     grid-column-start: 3;
     grid-column-end: 3;
+    padding-right: 120px;
 }
 
 .item2, .item4 {
@@ -74,3 +81,82 @@ a:hover {
     font-family: Oswald, Arial, sans-serif; 
 }
 
+/*Previous had border-top: 1px black, wondering why the line wouldn't appear, didn't justify the style which was my error*/
+
+footer {
+    margin-top: 50px;
+    border-top: 1px solid black ;
+}
+
+footer h3 h4 p a {
+    margin-bottom: 0px;
+}
+
+footer h3 h4 a {
+    font-size: 80%;
+}
+
+footer p {
+    font-size: 70%;
+}
+
+#Popular {
+    text-align: center;
+}
+
+/*Flexbox and alignment found https://www.theodinproject.com/lessons/foundations-alignment*/
+
+.footer-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.image {
+    text-align: center;
+}
+
+.image a {
+    display: block;
+}
+
+.main {
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-top: 1px solid black;
+}
+
+.main h3 {
+    font-style: italic;
+    color: #003980;
+}
+
+.main p {
+    margin-top: 0px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 15px; 
+    column-width: 50%;
+}
+
+.info-grid a {
+    color: black;
+}
+
+/* Adding style of all children of element https://stackoverflow.com/questions/26349987/how-do-i-apply-a-style-to-all-children-of-an-element */
+
+.info-grid > div {
+    background-color: #cae7d0;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 130px;
+    overflow-y: auto;
+}
