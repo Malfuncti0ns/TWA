@@ -1,3 +1,5 @@
+/* Saw this while doing exercises found https://github.com/TheOdinProject/css-exercises/blob/main/flex/03-flex-header-2/style.css works to import the font into the sheet  */
+
 @import url(https://fonts.googleapis.com/css?family=Oswald&display=swap);
 
 body {
