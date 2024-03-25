@@ -8,6 +8,7 @@
 <body>
     <h1>This is a form</h1>
     <hr>
+    <h2>Patient Details</h2>
     <form action="https://twaaut.cdms.westernsydney.edu.au/twainfo/form.asp">
         <p>Title</p>
         <input type="radio" id="Mr" name="title_type" value="Mr">
@@ -47,9 +48,9 @@
         <label for="country">Country:</label><br>
         <input type="text" id="country" name="country"><br>
         <label for="hphone">Home Phone number:</label><br>
-        <input type="tel" id="hphone" name="hphone"><br>
+        <input type="tel" id="hphone" name="hphone" maxlength="10"><br>
         <label for="mphone">Mobile Phone number:</label><br>
-        <input type="tel" id="mphone" name="mphone"><br>
+        <input type="tel" id="mphone" name="mphone" maxlength="12"><br>
         <p>Marital Status</p>
         <input type="radio" id="Married" name="mstatus" value="Male">
         <label for="mstatus">Married</label>
@@ -79,7 +80,37 @@
         <input type="radio" id="cvisit" name="nationf" value="No">
         <label for="nationf">No</label>
         <br>
-
+        <hr>
+        <h2>Next of Kin / Contact Person</h2>
+        <label for="kin_fname">First Name:</label><br>
+        <input type="text" id="kin_fname" name="kin_fname" placeholder="John"><br>
+        <label for="kin_lname">Current Last Name:</label><br>
+        <input type="text" id="kin_lname" name="kin_lname" placeholder="Smith"><br>
+        <label for="kin_dob">Date of Birth:</label><br>
+        <input type="date" id="kin_dob" name="kin_dob">
+        <br>
+        <label for="kin_addressL1">Address Line 1:</label><br>
+        <input type="text" id="kin_addressL1" name="kin_addressL1"><br>
+        <label for="kin_addressL2">Address Line 2:</label><br>
+        <input type="text" id="kin_addressL2" name="kin_addressL2"><br>
+        <label for="kin_suburb">Suburb:</label><br>
+        <input type="text" id="kin_suburb" name="kin_suburb"><br>
+        <label for="kin_state">State:</label><br>
+        <input type="text" id="kin_state" name="kin_state"><br>
+        <label for="kin_country">Country:</label><br>
+        <input type="text" id="kin_country" name="kin_country"><br>
+        <label for="kin_hphone">Home Phone number:</label><br>
+        <input type="tel" id="kin_hphone" name="kin_hphone" maxlength="10"><br>
+        <label for="kin_mphone">Mobile Phone number:</label><br>
+        <input type="tel" id="kin_mphone" name="kin_mphone" maxlength="12"><br>
+        <label for="Kin_relation">Relationship to patient</label><br>
+        <input type="text" id="Kin_relation" name="Kin_relation"><br>
+        <label for="kin_medino">Medicare No</label><br>
+        <input type="tel" id="kin_medino" name="kin_medino" inputmode="numeric" maxlength="10"><br>
+        <label for="kin_mediid">Card I.D Number</label><br>
+        <input type="tel" id="kin_mediid" name="kin_mediid" inputmode="numeric" maxlength="2"><br>
+        <label for="kin_medexp">Expiry Date</label><br>
+        <input type="date" id="kin_medexp" name="kin_medexp">
     </form>
 </body>
 </html>
