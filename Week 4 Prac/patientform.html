@@ -4,37 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/week5style.css">
+    <script type="text/javascript" src="../javascript/week5validation.js"></script>
     <title>Patient Form</title>
 </head>
 <body>
     <h1>I am a form</h1>
     <form action="https://twaaut.cdms.westernsydney.edu.au/twainfo/form.asp" method="post">
         <h2>Patient Details</h2>
-        <input type="radio" id="Mr" name="title_type" value="Mr">
-        <label for="title_type">Mr</label>
-        <input type="radio" id="Mrs" name="title_type" value="Mrs">
-        <label for="title_type">Mrs</label>
-        <input type="radio" id="Miss" name="title_type" value="Miss">
-        <label for="title_type">Miss</label>
-        <input type="radio" id="Ms" name="title_type" value="Ms">
-        <label for="title_type">Ms</label>
-        <label for="title_type">Other:</label>
-        <input type="text" id="Other" name="title_type">
+        <label for="title">Title</label>
+        <select type="select" id="title" name="title_type">
+        <option value="Mr">Mr</option>
+        <option value="Mrs">Mrs</option>
+        <option value="Miss">Miss</option>
+        <option value="Ms">Ms</option>
+        </select>
         <br>
         <br>
-        <label for="fname">First Name:</label>
+        <label for="fname">First Name:</label><br>
         <input type="text" id="fname" name="fname" placeholder="John"><br>
         <label for="lname">Current Last Name:</label><br>
-        <input type="text" id="lname" name="lname" placeholder="Smith"><br>
+        <input type="text" id="lname" name="lname" placeholder="Smith" onblur="checkEmptyInput(this);"><br>
         <label for="maiden">Maiden Name (If applicable):</label><br>
         <input type="text" id="maiden" placeholder="Anderson"><br>
-        <label for="dob">Date of Birth:</label><br>
-        <input type="date" id="dob" name="dob">
-        <p>Gender</p>
+        <br>
+        <label for="dob">Date of Birth:</label>
+        <br>
+        <input type="date" id="dob" name="dob"><br>
+        <br>
+        <label for="gender">Gender:</label>
         <input type="radio" id="Male" name="Sex" value="Male">
         <label for="Sex">Male</label>
         <input type="radio" id="Female" name="Sex" value="Female">
         <label for="Sex">Female</label>
+        <br>
         <br>
         <label for="addressL1">Address Line 1:</label><br>
         <input type="text" id="addressL1" name="addressL1"><br>
