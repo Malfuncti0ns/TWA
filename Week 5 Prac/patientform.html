@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/week6style.css">
+    <script type="text/javascript" src="../javascript/week6validation.js"></script>
+    <title>Patient Form</title>
+</head>
+<body>
+    <h1>I am a form</h1>
+    <form action="https://twaaut.cdms.westernsydney.edu.au/twainfo/form.asp" method="post" onsubmit="return validateForm()">
+        <h2>Patient Details</h2>
+        <label for="title">Title</label>
+        <select type="select" id="title" name="title_type">
+        <option value="">--</option>
+        <option value="Mr">Mr</option>
+        <option value="Mrs">Mrs</option>
+        <option value="Miss">Miss</option>
+        <option value="Ms">Ms</option>
+        </select>
+        <br>
+        <br>
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="John" onblur="checkEmptyInput(this);"><br>
+        <label for="lname">Current Last Name:</label><br>
+        <input type="text" id="lname" name="lname" placeholder="Smith" onblur="checkEmptyInput(this);"><br>
+        <label for="maiden">Maiden Name (If applicable):</label><br>
+        <input type="text" id="maiden" placeholder="Anderson" onblur="checkEmptyInput(this);"><br>
+        <br>
+        <label for="dob">Date of Birth:</label>
+        <br>
+        <input type="date" id="dob" name="dob"><br>
+        <br>
+        <label for="gender">Gender:</label>
+        <input type="radio" id="Male" name="Sex" value="Male" >
+        <label for="Sex">Male</label>
+        <input type="radio" id="Female" name="Sex" value="Female">
+        <label for="Sex">Female</label>
+        <br>
+        <br>
+        <label for="addressL1">Address Line 1:</label><br>
+        <input type="text" id="addressL1" name="addressL1" onblur="checkEmptyInput(this);"><br>
+        <label for="addressL2">Address Line 2:</label><br>
+        <input type="text" id="addressL2" name="addressL2"><br>
+        <label for="suburb">Suburb:</label><br>
+        <input type="text" id="suburb" name="suburb" onblur="checkEmptyInput(this);"><br>
+        <label for="state">State:</label><br>
+        <input type="text" id="state" name="state" onblur="checkEmptyInput(this);"><br>
+        <label for="postcode">Potcode:</label><br>
+        <input type="text" id="postcode" name="postcode" onblur="checkEmptyInput(this);" pattern="[0-9]{4}" maxlength="4"><br>
+        <label for="hphone">Home Phone number:</label><br>
+        <input type="tel" id="hphone" name="hphone" maxlength="10" onblur="checkEmptyInput(this);"><br>
+        <label for="mphone">Mobile Phone number:</label><br>
+        <input type="tel" id="mphone" name="mphone" maxlength="10" onblur="checkEmptyInput(this);"><br>
+        <p>Marital Status</p>
+        <input type="radio" id="Married" name="mstatus" value="Male">
+        <label for="mstatus">Married</label>
+        <input type="radio" id="Single" name="mstatus" value="Single">
+        <label for="mstatus">Single</label>
+        <input type="radio" id="Wdiowed" name="mstatus" value="Wdiowed">
+        <label for="mstatus">Wdiowed</label>
+        <input type="radio" id="Separated" name="mstatus" value="Separated">
+        <label for="mstatus">Separated</label>
+        <input type="radio" id="DeFacto" name="mstatus" value="DeFacto">
+        <label for="mstatus">De-Facto</label>
+        <input type="radio" id="Divorced" name="mstatus" value="Divorced">
+        <label for="mstatus">Divorced</label>
+        <br>
+        <p>Do you wish to be visited by a Church representative?</p>
+        <input type="radio" id="cvisit" name="cvisit" value="Yes">
+        <label for="cvisit">Yes</label>
+        <input type="radio" id="cvisit" name="cvisit" value="No">
+        <label for="cvisit">No</label>
+        <br>
+        <br>
+        <label for="religion">Religion</label>
+        <input type="text" id="religion" name="religion"><br>
+        <p>Aboriginal / Torres Strait Islander</p>
+        <input type="radio" id="cvisit" name="nationf" value="Yes">
+        <label for="nationf">Yes</label>
+        <input type="radio" id="cvisit" name="nationf" value="No">
+        <label for="nationf">No</label>
+        <br>
+        <hr>
+        <h2>Next of Kin / Contact Person</h2>
+        <label for="kin_fname">First Name:</label><br>
+        <input type="text" id="kin_fname" name="kin_fname" placeholder="John"><br>
+        <label for="kin_lname">Current Last Name:</label><br>
+        <input type="text" id="kin_lname" name="kin_lname" placeholder="Smith"><br>
+        <label for="kin_dob">Date of Birth:</label><br>
+        <input type="date" id="kin_dob" name="kin_dob">
+        <br>
+        <label for="kin_addressL1">Address Line 1:</label><br>
+        <input type="text" id="kin_addressL1" name="kin_addressL1"><br>
+        <label for="kin_addressL2">Address Line 2:</label><br>
+        <input type="text" id="kin_addressL2" name="kin_addressL2"><br>
+        <label for="kin_suburb">Suburb:</label><br>
+        <input type="text" id="kin_suburb" name="kin_suburb"><br>
+        <label for="kin_state">State:</label><br>
+        <input type="text" id="kin_state" name="kin_state"><br>
+        <label for="kin_country">Country:</label><br>
+        <input type="text" id="kin_country" name="kin_country"><br>
+        <label for="kin_hphone">Home Phone number:</label><br>
+        <input type="tel" id="kin_hphone" name="kin_hphone" maxlength="10"><br>
+        <label for="kin_mphone">Mobile Phone number:</label><br>
+        <input type="tel" id="kin_mphone" name="kin_mphone" maxlength="10"><br>
+        <label for="Kin_relation">Relationship to patient</label><br>
+        <input type="text" id="Kin_relation" name="Kin_relation"><br>
+        <label for="kin_medino">Medicare No</label><br>
+        <input type="tel" id="kin_medino" name="kin_medino" inputmode="numeric" minlength="12"><br>
+        <label for="kin_mediid">Card I.D Number</label><br>
+        <input type="tel" id="kin_mediid" name="kin_mediid" inputmode="numeric" minlength="1"><br>
+        <label for="kin_medexp">Expiry Date</label><br>
+        <input type="date" id="kin_medexp" name="kin_medexp"><br>
+        <br>
+        <input type="submit" value="Submit"> <input type="reset" value="Reset"><br>
+    </form>
+</body>
+</html>
