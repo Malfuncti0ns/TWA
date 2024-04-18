@@ -7,6 +7,7 @@
     <script type="text/javascript" src="../javascript/week6validation.js"></script>
     <title>Patient Form</title>
 </head>
+
 <body>
     <h1>I am a form</h1>
     <form action="https://twaaut.cdms.westernsydney.edu.au/twainfo/form.asp" method="post" onsubmit="return validateForm()">
@@ -26,11 +27,14 @@
         <label for="lname">Current Last Name:</label><br>
         <input type="text" id="lname" name="lname" placeholder="Smith" onblur="checkEmptyInput(this);"><br>
         <label for="maiden">Maiden Name (If applicable):</label><br>
-        <input type="text" id="maiden" placeholder="Anderson" onblur="checkEmptyInput(this);"><br>
+        <input type="text" id="maiden" placeholder="Anderson"><br>
         <br>
         <label for="dob">Date of Birth:</label>
         <br>
         <input type="date" id="dob" name="dob"><br>
+        <br>
+        <label for="bCountry">Country of birth:</label><br>
+        <input type="text" id="bCountry" name="bCountry"><br>
         <br>
         <label for="gender">Gender:</label>
         <input type="radio" id="Male" name="Sex" value="Male" >
@@ -41,8 +45,6 @@
         <br>
         <label for="addressL1">Address Line 1:</label><br>
         <input type="text" id="addressL1" name="addressL1" onblur="checkEmptyInput(this);"><br>
-        <label for="addressL2">Address Line 2:</label><br>
-        <input type="text" id="addressL2" name="addressL2"><br>
         <label for="suburb">Suburb:</label><br>
         <input type="text" id="suburb" name="suburb" onblur="checkEmptyInput(this);"><br>
         <label for="state">State:</label><br>
@@ -108,9 +110,9 @@
         <label for="Kin_relation">Relationship to patient</label><br>
         <input type="text" id="Kin_relation" name="Kin_relation"><br>
         <label for="kin_medino">Medicare No</label><br>
-        <input type="tel" id="kin_medino" name="kin_medino" inputmode="numeric" minlength="12"><br>
+        <input type="tel" id="kin_medino" name="kin_medino" inputmode="numeric" maxlength="12" onblur="checkEmptyInput(this)"><br>
         <label for="kin_mediid">Card I.D Number</label><br>
-        <input type="tel" id="kin_mediid" name="kin_mediid" inputmode="numeric" minlength="1"><br>
+        <input type="tel" id="kin_mediid" name="kin_mediid" inputmode="numeric" maxlength="1" onblur="checkEmptyInput(this)"><br>
         <label for="kin_medexp">Expiry Date</label><br>
         <input type="date" id="kin_medexp" name="kin_medexp"><br>
         <br>
