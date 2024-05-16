@@ -13,6 +13,7 @@ function validateForm() {
     var firstName = document.getElementById("fname").value;
     var lastName = document.getElementById("lname").value;
     var letters = /^[a-zA-Z]*$/;
+    var numbers = /^[0-9]*$/;
     var dob = document.getElementById("dob").value;
     var birthCountry = document.getElementById("bCountry").value;
     var addressL1 = document.getElementById("addressL1").value;
@@ -65,12 +66,17 @@ function validateForm() {
     }
 
     if (addressL1 === "" | suburb === "" | state === "") {
-        alert("Please enter a valid address")
-        return false
+        alert("Please enter a valid address");
+        return false;
     }
 
     if (pCode.length !== 4) {
         alert("Please enter a 4 digit postcode");
+        return false;
+    }
+
+    if (!pCode.test(numbers)) {
+        alert("Please enter only numbers");
         return false;
     }
 
