@@ -3,18 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Week 8 Exercise 1</title>
+    <title>Week 8 Exercise 3</title>
     <link rel="stylesheet" href=" ../css/week10Styles.css">
 </head>
 
 <body>
     <?php
     require_once ("conn.php");
-    $sql = "SELECT name, quantityInStock, price FROM product";
+    $sql = "SELECT name, quantityInStock, price FROM product WHERE quantityInStock > 10";
     $results = $dbConn->query($sql)
         or die('Problem with query: ' . $dbConn->error);
     ?>
-    <h1>Product table</h1>
+    <h1>Products with stock > 10.</h1>
     <table>
         <tr></tr>
             <th>Name </th>
