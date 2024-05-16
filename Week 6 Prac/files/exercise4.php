@@ -4,7 +4,12 @@
    // An example is already given to you for the First Name
 
    $fname = $_POST['firstname'];
+   $emailsr = $_POST['email'];
+   $addressstr = $_POST['postaddr'];
+   $sportStr = $_POST['favsport'];
+   $mailstr = $_POST['emaillist'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -57,6 +62,20 @@
        <h2>The following information was received from the form:</h2>
        <p><strong>First Name:</strong> <?php echo $fname; ?></p>
        <!--output the other form inputs here -->
+       <p><strong>Email Address:</strong> <?php echo $emailsr; ?></p>
+       <p><strong>Postal Address:</strong> <?php echo $addressstr; ?></p>
+       <?php
+       if (!empty($sportStr)) {
+        echo "<p><strong>Your favourite sports</strong></p>";
+        echo "<ul>";
+        foreach ($sportStr as $sport) {
+          echo "<li>", $sport ,"</li>";
+        }
+        echo "</ul>";
+       } else {
+        echo "<p>No Sports selected</p>";
+       }
+       ?>
 
     </section>
   </body>
