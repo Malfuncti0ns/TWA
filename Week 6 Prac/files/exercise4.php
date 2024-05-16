@@ -14,7 +14,7 @@
   </head>
   <body>
     <h1>Week 9 Exercise 4 PHP form demo</h1>
-    <form id="userinfo" action="exercise4.php" method="post">
+    <form id="userinfo" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
       <p>Please fill in the following form. All fields are mandatory.</p>
 
       <p>
