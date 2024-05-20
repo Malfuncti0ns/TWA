@@ -10,7 +10,10 @@ body {
     display: block;
     margin: 0 auto;
     max-width: 100%;
-    height: 20%;
+    height: 0%;
+    scale: 90%;
+    border: black;
+    border-style: solid;
 }
 
 a {
@@ -64,9 +67,6 @@ p {
     border-radius: 5px;
 }
 
-.IndexImages img:hover {
-    border-color: #d7a64b;
-}
 
 
 
