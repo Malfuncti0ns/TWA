@@ -54,6 +54,18 @@ p {
     border-radius: 5px;
 }
 
+.fillcontent{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.left, .center, .right  {
+    width: 30%;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
 .IndexImages {
     display: flex;
     justify-content: space-around;
