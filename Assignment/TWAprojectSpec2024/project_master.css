@@ -1,20 +1,72 @@
-.Navigation a {
-    margin:0;
-    padding: 10px;;
-    font-family: Arial, sans-serif;
-    font-size:1em;
-    background-color:#21288b;
-    color:#c73838;
-    text-align: center;
-    display: inline-block;
-}
-
 body {
-    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f5f7;
+    color: #304c7a;
+    margin: 0;
+    padding: 0;
 }
 
-.IndexImages{
-    display: inline-block;
-    align-content: center;
-    padding: 20px;
+.banner {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: 20%;
 }
+
+a {
+    color: #304c7a;
+}
+
+a:hover {
+    color: #c72138;
+}
+
+.Navigation {
+    background-color: #304c7a;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.Navigation a {
+    color: #f4f5f7;
+    text-decoration: none;
+    font-size: 1em;
+    margin: 0 15px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.Navigation a:hover {
+    background-color: #c72138;
+    color: #ffffff;
+}
+
+p {
+    padding: 20px;
+    line-height: 1.6;
+    background-color: #ffffff;
+    margin: 20px auto;
+    max-width: 800px;
+    border: 1px solid #d7a64b;
+    border-radius: 5px;
+}
+
+.IndexImages {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.IndexImages img {
+    max-width: 30%;
+    height: auto;
+    border: 2px solid #e06236;
+    border-radius: 5px;
+}
+
+.IndexImages img:hover {
+    border-color: #d7a64b;
+}
+
+
+
