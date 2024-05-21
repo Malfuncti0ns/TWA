@@ -26,17 +26,11 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
     <script type="text/javascript" src="project_Script.js"></script>
 </head>
 
-<?php
-if ($error_message !== "") {
-    echo '<p style="color: red;">' . $error_message . '</p>';
-}
-?>
-
 <body>
     <img class="banner" src="logo.png" alt="Function Tracker Logo">
     <div class="Navigation">
         <a href="Registration.html">New User Registration</a>
-        <a href="Login.html">Login</a>
+        <a href="Login_form.php">Login</a>
     </div>
     <form action="login.php" method="post" onsubmit="return validateForm()">
         <!--Thoughts here, use login.php to query the database using the input details if yes then move to page where we have exercies (May need to update my page names)
@@ -49,8 +43,13 @@ if ($error_message !== "") {
         <br>
         <input type="submit" value="Login">
     </form>
-
-
+    <div class=error_middle>
+    <?php
+    if ($error_message !== "") {
+        echo '<p class="error">' . $error_message . '</p>';
+    }
+    ?>
+    </div>
 </body>
 
 </html>
