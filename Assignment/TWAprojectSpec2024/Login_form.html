@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Tracker Login</title>
+    <link rel="stylesheet" href="project_master.css">
+    <script type="text/javascript" src="project_Script.js"></script>
+</head>
+
+<body>
+    <img class="banner" src="logo.png" alt="Function Tracker Logo">
+    <div class="Navigation">
+        <a href="Registration.html">New User Registration</a>
+        <a href="Login.html">Login</a>
+    </div>
+    <form action="login.php" method="post" onsubmit="return validateForm()">
+        <!--Thoughts here, use login.php to query the database using the input details if yes then move to page where we have exercies (May need to update my page names)
+        else DOM message saying login failed, no further details for failure message to reduce an attack vector by disclosing information that should have been withheld-->
+        <label for="Username">Username:</label>
+        <input type="text" id="username" name="username" onblur="checkEmptyInput(this);">
+        <br>
+        <label for="Password">Password:</label>
+        <input type="password" id="password" name="password" onblur="checkEmptyInput(this);">
+        <br>
+        <input type="submit" value="Login">
+    </form>
+
+
+</body>
+
+</html>
