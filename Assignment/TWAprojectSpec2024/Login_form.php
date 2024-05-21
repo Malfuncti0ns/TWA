@@ -22,8 +22,8 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Function Tracker Login</title>
-    <link rel="stylesheet" href="project_master.css">
-    <script type="text/javascript" src="project_Script.js"></script>
+    <link rel="stylesheet" href="../project/css/project_master.css">
+    <script type="text/javascript" src="../project/javascript/project_Script.js"></script>
 </head>
 
 <body>
@@ -36,11 +36,9 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
         <!--Thoughts here, use login.php to query the database using the input details if yes then move to page where we have exercies (May need to update my page names)
         else DOM message saying login failed, no further details for failure message to reduce an attack vector by disclosing information that should have been withheld-->
         <label for="Username">Username:</label>
-        <input type="text" id="username" name="username" onblur="checkEmptyInput(this);">
-        <br>
+        <input type="text" id="username" name="username" onblur="checkEmptyInput(this);"><br>
         <label for="Password">Password:</label>
-        <input type="password" id="password" name="password" onblur="checkEmptyInput(this);">
-        <br>
+        <input type="password" id="password" name="password" onblur="checkEmptyInput(this);"><br>
         <input type="submit" value="Login">
     </form>
     <div class=error_middle>
