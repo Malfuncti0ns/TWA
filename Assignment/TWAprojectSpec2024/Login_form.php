@@ -1,3 +1,20 @@
+<?php
+$error_message = "";
+if (isset($_GET['error']) && $_GET['error'] == 1) {
+    $error_message = "Invalid username or password";
+}
+// Found at https://stackoverflow.com/questions/20717032/login-error-message-in-php
+// This will check the php script (Login.php) for an error flag, in this case error 1, if the error
+// is found then it will allocate the variable to the error message, then in the HTML I can include a
+// php script that will only appear IF the error flag is true
+
+// This was previously Login_form.html but because I wanted the error message to appear from the php data I've updated
+// the file type.
+
+// This did prevent me from looking at in vscode locally but I've used the site manager to test, my thoughts more on getting
+// it to work where it's being tested more than locally on my workstations
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +25,12 @@
     <link rel="stylesheet" href="project_master.css">
     <script type="text/javascript" src="project_Script.js"></script>
 </head>
+
+<?php
+if ($error_message !== "") {
+    echo '<p style="color: red;">' . $error_message . '</p>';
+}
+?>
 
 <body>
     <img class="banner" src="logo.png" alt="Function Tracker Logo">
