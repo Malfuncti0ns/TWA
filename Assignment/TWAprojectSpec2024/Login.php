@@ -24,7 +24,7 @@ if ($results->num_rows > 0) {
 
     $input_hash = hash('sha256', $pass);
 
-    if ($input_hash === $password_hash ) {
+    if ($input_hash === $password_hash) {
         $_SESSION['username'] = $user;
         $_SESSION['role'] = $role;
 
@@ -32,13 +32,19 @@ if ($results->num_rows > 0) {
             //Here I made the mistake of leaving just 1 because it was looking for an int instead of the literal 1, added ' ' and got an admin to login to the
             //right page
             header('Location: admin.php');
+            exit();
         } else {
-            header('Location: log.php');
+            header('Location: workout.php');
+            exit();
         }
-    }  else {
-    echo "<p>Invalid username or password</p>";
-//it's hitting the PHP page on sucess but going all the way to this break
-//I'm not comparing the hash, its comparing the plaintext 
-}
-
+    } else {
+        header('Location: login_form.html');
+        exit();
+        //it's hitting the PHP page on sucess but going all the way to this break
+        //I'm not comparing the hash, its comparing the plaintext 
+    }
+} else {
+    header('Location: login_form.html');
+    exit();
+    //I missed an else statement here to loop back, need to provide context to user as to why though
 }
