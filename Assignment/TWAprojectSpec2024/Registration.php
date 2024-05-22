@@ -23,13 +23,13 @@
         <label for="username">Email(Username):</label><br>
         <input type="text" id="username" name="username" onblur="checkEmptyInput(this);"><br>
         <label for="mphone">Mobile Phone number:</label><br>
-        <input type="tel" id="mphone" name="mphone" maxlength="10" onblur="checkEmptyInput(this);"><br>
+        <input type="text" id="mphone" name="mphone" maxlength="10" onblur="checkEmptyInput(this);"><br>
         <label for="Password">Password:</label><br>
         <input type="password" id="password" name="password" onblur="checkEmptyInput(this);"><br>
         <label for="age">Age:</label><br>
-        <input type="text" id="age" name="age" pattern="\d{1,3}" maxlength="3"><br>
+        <input type="number" id="age" name="age" pattern="\d{1,3}" maxlength="3"><br>
         <label for="weight">Weight(KG):</label><br>
-        <input type="text" id="weight" name="weight" pattern="\d{1,3}" maxlength="3"><br>
+        <input type="number" step="0.01" id="weight" name="weight" pattern="\d{1,3}" maxlength="3"><br>
         <label for="height">Height(CM):</label><br>
         <input type="text" id="height" name="height" pattern="\d{1,3}" maxlength="3"><br>
         <input type="submit" value="Complete Registration"><input type="reset" value="Reset">

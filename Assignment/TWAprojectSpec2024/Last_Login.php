@@ -14,5 +14,3 @@ if (isset($_SESSION['username'])) {
     header('Location: login_form.html');
     exit();
 }
-
-//ITS WORKING...ITS WORKING!
