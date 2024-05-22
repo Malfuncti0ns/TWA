@@ -27,6 +27,9 @@ $sql = "INSERT INTO users (first_name, last_name, email, mobile, password, age, 
         //Previous versions I was sending the is_admin and date_registered to the DB whch was giving me errors.
         //Removed everything EXCEPT the fields that I was passing through to the database and it worked
 
+        //Have not done a check for unique emails, will come back for this step time permitting but I want to get all pages working
+        //before I clear out some of the error checking, this is going tot take some time
+
 $stmt = $dbConn->prepare($sql);
 $stmt->bind_param("ssssssss", $firstname, $lastname, $email, $mobile, $password_hash, $age, $height, $weight);
 
