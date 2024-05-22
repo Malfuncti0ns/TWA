@@ -29,6 +29,9 @@ $sql = "INSERT INTO users (first_name, last_name, email, mobile, password, age, 
 
         //Have not done a check for unique emails, will come back for this step time permitting but I want to get all pages working
         //before I clear out some of the error checking, this is going tot take some time
+        
+        //Thinking while on my lunch break, if I use a similar query to check the rows of email and if it === existing then bounce back
+        //to registraion page with error message
 
 $stmt = $dbConn->prepare($sql);
 $stmt->bind_param("ssssssss", $firstname, $lastname, $email, $mobile, $password_hash, $age, $height, $weight);
