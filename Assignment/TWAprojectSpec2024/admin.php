@@ -14,7 +14,7 @@
     <div class="Navigation">
         <a href="Index.html">Home Page</a>
     </div>
-        <form class="new_admin" action="admin.php" method="post" onsubmit="return validateForm()">
+        <form class="new_admin" action="admin_reg.php" method="post" onsubmit="return validateForm()">
         <label for="fname">First Name:</label><br>
         <input type="text" id="fname" name="fname" onblur="checkEmptyInput(this);"><br>
         <label for="lname">Last Name:</label><br>
@@ -27,5 +27,7 @@
         <input type="password" id="password" name="password" onblur="checkEmptyInput(this);"><br>
         <input type="submit" value="Complete Registration"><input type="reset" value="Reset">
     </form>
+
+    <!--This worked too well, somethign feels like it's missing but I'm certain it will appear as I progress to the next stage-->
 </body>
 </html>
