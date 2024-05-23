@@ -29,7 +29,7 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
 <body>
     <img class="banner" src="logo.png" alt="Function Tracker Logo">
     <div class="Navigation">
-        <a href="Registration.html">New User Registration</a>
+        <a href="Registration.php">New User Registration</a>
         <a href="Login_form.php">Login</a>
     </div>
     <form action="login.php" method="post" onsubmit="return validateForm()">
