@@ -27,11 +27,12 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
 </head>
 
 <body>
-    <img class="banner" src="logo.png" alt="Function Tracker Logo">
+    <a href="Index.html"><img class="banner" src="../project/images/logo.png" alt="Function Tracker Logo"></a>
     <div class="Navigation">
         <a href="Registration.php">New User Registration</a>
         <a href="Login_form.php">Login</a>
     </div>
+    <div class="form-box">
     <form action="login.php" method="post" onsubmit="return validateForm()">
         <!--Thoughts here, use login.php to query the database using the input details if yes then move to page where we have exercies (May need to update my page names)
         else DOM message saying login failed, no further details for failure message to reduce an attack vector by disclosing information that should have been withheld-->
@@ -41,12 +42,13 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
         <input type="password" id="password" name="password" onblur="checkEmptyInput(this);"><br>
         <input type="submit" value="Login">
     </form>
+    </div>
     <div class=error_middle>
-    <?php
-    if ($error_message !== "") {
-        echo '<p class="error">' . $error_message . '</p>';
-    }
-    ?>
+        <?php
+        if ($error_message !== "") {
+            echo '<p class="error">' . $error_message . '</p>';
+        }
+        ?>
     </div>
 </body>
 

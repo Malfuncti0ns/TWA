@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <img class="banner" src="../project/images/logo.png" alt="Function Tracker Logo">
+    <a href="Index.html"><img class="banner" src="../project/images/logo.png" alt="Function Tracker Logo"></a>
     <div class="Navigation">
         <a href="login_form.php">Login</a>
     </div>
