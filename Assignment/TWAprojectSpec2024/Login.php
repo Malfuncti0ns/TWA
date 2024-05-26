@@ -34,7 +34,7 @@ if ($results->num_rows > 0) {
             header('Location: admin.php');
             exit();
         } else {
-            header('Location: workout.php');
+            header('Location: workout_log.php');
             exit();
         }
     } else {
