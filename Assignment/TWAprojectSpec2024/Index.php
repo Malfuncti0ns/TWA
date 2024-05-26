@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <a href="Index.html"><img class="banner" src="../project/images/logo.png" alt="Function Tracker Logo"></a>
+    <a href="Index.php"><img class="banner" src="../project/images/logo.png" alt="Function Tracker Logo"></a>
     <!--Image created using the website Looka https://looka.com/ 
     I wanted something that was a bit unique to my assignment and this allowed me to input
     a bit more information and get something simple and clean. Working on the sizing as it feels a bit too tall at the moment

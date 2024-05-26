@@ -38,13 +38,13 @@ if ($results->num_rows > 0) {
             exit();
         }
     } else {
-        header('Location: login_form.html');
+        header('Location: login_form.php');
         exit();
         //it's hitting the PHP page on sucess but going all the way to this break
         //I'm not comparing the hash, its comparing the plaintext 
     }
 } else {
-    header('Location: login_form.html');
+    header('Location: login_form.php');
     exit();
     //I missed an else statement here to loop back, need to provide context to user as to why though
 }

@@ -27,7 +27,7 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
 </head>
 
 <body>
-    <a href="Index.html"><img class="banner" src="../project/images/logo.png" alt="Function Tracker Logo"></a>
+    <a href="Index.php"><img class="banner" src="../project/images/logo.png" alt="Function Tracker Logo"></a>
     <div class="Navigation">
         <a href="Registration.php">New User Registration</a>
         <a href="Login_form.php">Login</a>
