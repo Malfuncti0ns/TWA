@@ -2,14 +2,12 @@
 session_start();
 require_once ('dbconn.php');
 
-if (!isset($_SESSION['user_id'])) {
-    echo "<p class='error'>User is not logged in</p>";
-    exit();
-}
 //added to test if user was logged in, user not appearing so there is a break in the session from the login to workout_log
 
 //didn't have session_start in the workout_log.php page, that might be the break
+//Session_stat is on every page but I'm still getting the above message
 
+//I didn't set the variable for each page, thats my issue
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $user = $_SESSION['username'];

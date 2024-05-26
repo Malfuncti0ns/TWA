@@ -1,3 +1,9 @@
+<?php
+session_start();
+$_SESSION['username'] = $username;
+$_SESSION['user_id'] = $user_id; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
