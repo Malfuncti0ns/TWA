@@ -62,18 +62,18 @@ if ($check_email->num_rows > 0) {
     //Better idea (found https://stackoverflow.com/questions/46622236/how-to-separately-check-if-php-username-or-email-exists-in-database)
 //I don't need to compare each row, if any appear and then if it's >0 send message to user on registration screen
 
-    $stmt = $dbConn->prepare($sql);
-    $stmt->bind_param("ssssssss", $firstname, $lastname, $email, $mobile, $password_hash, $age, $height, $weight);
+    $result = $dbConn->prepare($sql);
+    $result->bind_param("ssssssss", $firstname, $lastname, $email, $mobile, $password_hash, $age, $height, $weight);
 
 
-    if ($stmt->execute()) {
+    if ($result->execute()) {
         header('Location: login_form.php');
         exit();
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error: " . $result->error;
         //This saved me with debugging, I could see the break was here because of https://www.php.net/manual/en/mysqli-stmt.error.php
     }
 
-    $stmt->close();
+    $result->close();
     $dbConn->close();
 }
