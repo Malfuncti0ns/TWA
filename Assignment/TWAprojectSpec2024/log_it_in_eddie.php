@@ -9,26 +9,38 @@ require_once ('dbconn.php');
 
 //I didn't set the variable for each page, thats my issue
 
-//Above was not the issue, I didn't add the user_id to session data SO when trying to update the workout with the primary key IT HAD NO IDEA WHAT IT WAS
-//Updated login.php to also store the user ID
-
 
 $user = $_SESSION['user_id'];
-$workout_date = $_POST["workout_date"];
-$exercise_id = $_POST["exercise_id"];
+$workout_date = $_POST['date'];
+$exercise_id = $_POST["exercise"];
 $duration = $_POST["duration"];
 $distance = $_POST["distance"];
 $notes = $_POST["notes"] ? $_POST["notes"] : NULL;
 
-$sql = "INSERT INTO workout (workout_date, exercise_id, duration, distance, notes) 
-    VALUES (?, ?, ?, ?, ?)";
+
+//echo "User ID: " . $user . "<br>";
+//echo "Workout Date: " . $workout_date . "<br>";
+//echo "Exercise ID: " . $exercise_id . "<br>";
+//echo "Duration: " . $duration . "<br>";
+//echo "Distance: " . $distance . "<br>";
+//echo "Notes: " . $notes . "<br>";
+
+//Finally had the bright idea to see what was being fed into the DB because it wasn't happy with what I had
+//after fixing the exercise ID to be a number with the selection, I saw that it was expecting a user ID
+//I had foolishly removed it, added it back in and set it as an int then it worked
+
+$sql = "INSERT INTO workout (user_id, workout_date, exercise_id, duration, distance, notes) 
+    VALUES (?, ?, ?, ?, ?, ?)";
+
 $stmt = $dbConn->prepare($sql);
-$stmt->bind_param("iiiis", $workout_date, $exercise_id, $duration, $distance, $notes);
+$stmt->bind_param("isssss", $user, $workout_date, $exercise_id, $duration, $distance, $notes);
 
 if ($stmt->execute()) {
     echo "<p>Workout recorded successfully</p>";
+    exit();
 } else {
-    echo "<p>Error: " . $stmt->error . "</p>";
+    echo "<p>Still spitting errors</p>";
 }
+$stmt->close();
 $dbConn->close();
 

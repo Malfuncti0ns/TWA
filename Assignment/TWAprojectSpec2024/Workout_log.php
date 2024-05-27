@@ -30,19 +30,31 @@ to make the index a php page since I've realised I'll need to maintain a session
         <label for="date">Workout Date:</label>
         <input type="datetime-local" id="date" name="date" onblur="checkEmptyInput(this);">
         <br>
-        <label for="exercise">Exercise:</label>
+        <label>Exercise:</label>
+        <label for="walking">Walking</label>
+        <input type="radio" id="walking" name="exercise" value="1">
+        
+        <label for="running">Running</label>
+        <input type="radio" id="running" name="exercise" value="2">
+        
+        <label for="cycling">Cycling</label>
+        <input type="radio" id="cycling" name="exercise" value="3">
+        
+        <!--<label for="exercise">Exercise:</label>
         <select id="exercise" name="exercise">
-            <option value="walking">Walking</option>
-            <option value="running">Running</option>
-            <option value="cycling">Cycling</option>
-        </select>
+            <option value="1">Walking</option>
+            <option value="2">Running</option>
+            <option value="3">Cycling</option>
+        </select>-->
+        <!--I have a feeling it doesn't like this because it doesnt know how to input this string as a value,-->
+
         <br>
         <label for="duration">Duration(Minutes):</label>
-        <input type="number" id="duration" name="duration" pattern="\d{1,3}" onblur="checkEmptyInput(this);">
+        <input type="string" id="duration" name="duration"  onblur="checkEmptyInput(this);">
         <br>
+
         <label for="distance">Distance(KM):</label>
-        <input type="number" id="distance" name="distance" step="0.01" min="0" max="9999"
-            onblur="checkEmptyInput(this);">
+        <input type="string" id="distance" name="distance" onblur="checkEmptyInput(this);">
         <br>
         <label for="notes">Workout Notes:</label>
         <textarea id="notes" name="notes" rows="4" cols="30"></textarea>

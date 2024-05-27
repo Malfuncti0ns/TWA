@@ -16,9 +16,14 @@ function validateForm() {
     var age = document.getElementById("age").value;
     var weight = document.getElementById("weight").value;
     var height = document.getElementById("height").value;
+    var exercise = document.getElementById("exercise").value;
+    var duration = document.getElementById("duration").value;
+    var duration = document.getElementById("distance").value;
+    var notes = document.getElementById("notes").value;
     var letters = /^[a-zA-Z]*$/;
     var emailpat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     var numbers = /^[0-9]*$/;
+    var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
     //These were my baseline for an email check, instead of checking for a var of letters, numbers and an @ symbol, why not check a pattern?
     //setting up an order to the check so "a-z & numbers" + @ + . "a-z" (Numbers can be used in a domain but not common practice and also outside of scope for this case)
     //Guide from stackoverflow https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
@@ -73,5 +78,25 @@ function validateForm() {
 
     if(!numbers.test(height)){
         alert("Please enter a valid height");
+    }
+
+    if(!exercise){
+        alert("Please select an exercise");
+    }
+
+    if(!numbers.test(duration)){
+        alert("Please enter only numbers");
+    }
+
+    if(!numbers.test(distance)){
+        alert("Please enter only numbers");
+    }
+
+    if(!numbers.test(notes)){
+        alert("Please enter only numbers");
+    }
+
+    if (specialChars.test(text)) {
+        alert("No special characters in notes");
     }
 }
