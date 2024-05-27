@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 require_once ('dbconn.php');
 
@@ -26,12 +23,12 @@ $notes = $_POST["notes"] ? $_POST["notes"] : NULL;
 $sql = "INSERT INTO workout (workout_date, exercise_id, duration, distance, notes) 
     VALUES (?, ?, ?, ?, ?)";
 $stmt = $dbConn->prepare($sql);
-$stmt->bind_param("sssss", $workout_date, $exercise_id, $duration, $distance, $notes);
+$stmt->bind_param("iiiis", $workout_date, $exercise_id, $duration, $distance, $notes);
 
 if ($stmt->execute()) {
     echo "<p>Workout recorded successfully</p>";
 } else {
-    echo "<pError: " . $stmt->error . "</p>";
+    echo "<p>Error: " . $stmt->error . "</p>";
 }
 $dbConn->close();
 

@@ -28,7 +28,7 @@ to make the index a php page since I've realised I'll need to maintain a session
 
     <form class="log_workout" action="log_it_in_eddie.php" method="post" onsubmit="return validateForm()">
         <label for="date">Workout Date:</label>
-        <input type="date" id="date" name="date" onblur="checkEmptyInput(this);">
+        <input type="datetime-local" id="date" name="date" onblur="checkEmptyInput(this);">
         <br>
         <label for="exercise">Exercise:</label>
         <select id="exercise" name="exercise">
