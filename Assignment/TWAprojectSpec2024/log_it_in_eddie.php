@@ -36,7 +36,7 @@ $stmt = $dbConn->prepare($sql);
 $stmt->bind_param("isssss", $user, $workout_date, $exercise_id, $duration, $distance, $notes);
 
 if ($stmt->execute()) {
-    echo "<p>Workout recorded successfully</p>";
+    header('Location: Workout_history.php');
     exit();
 } else {
     echo "<p>Still spitting errors</p>";
