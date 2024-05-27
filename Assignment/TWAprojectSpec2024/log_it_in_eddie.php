@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 require_once ('dbconn.php');
 
@@ -8,25 +11,27 @@ require_once ('dbconn.php');
 //Session_stat is on every page but I'm still getting the above message
 
 //I didn't set the variable for each page, thats my issue
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $user = $_SESSION['username'];
-    $workout_date = $_POST["workout_date"];
-    $exercise_id = $_POST["exercise_id"];
-    $duration = $_POST["duration"];
-    $distance = $_POST["distance"];
-    $notes = $_POST["notes"] ? $_POST["notes"] : NULL;
+//Above was not the issue, I didn't add the user_id to session data SO when trying to update the workout with the primary key IT HAD NO IDEA WHAT IT WAS
+//Updated login.php to also store the user ID
 
-    $sql = "INSERT INTO workout (user_id, workout_date, exercise_id, duration, distance, notes) 
-    VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $dbConn->prepare($sql);
-    $stmt->bind_param("isiiis", $user, $workout_date, $exercise_id, $duration, $distance, $notes);
 
-    if ($stmt->execute()) {
-        echo "<p>Workout recorded successfully</p>";
-    } else {
-        echo "<pError: " . $stmt->error . "</p>";
-    }
-    $dbConn->close();
+$user = $_SESSION['user_id'];
+$workout_date = $_POST["workout_date"];
+$exercise_id = $_POST["exercise_id"];
+$duration = $_POST["duration"];
+$distance = $_POST["distance"];
+$notes = $_POST["notes"] ? $_POST["notes"] : NULL;
 
+$sql = "INSERT INTO workout (workout_date, exercise_id, duration, distance, notes) 
+    VALUES (?, ?, ?, ?, ?)";
+$stmt = $dbConn->prepare($sql);
+$stmt->bind_param("sssss", $workout_date, $exercise_id, $duration, $distance, $notes);
+
+if ($stmt->execute()) {
+    echo "<p>Workout recorded successfully</p>";
+} else {
+    echo "<pError: " . $stmt->error . "</p>";
 }
+$dbConn->close();
+

@@ -6,7 +6,7 @@ require_once ('dbconn.php');
 $user = $_POST["username"];
 $pass = $_POST["password"];
 
-$sql = "SELECT password, is_admin FROM users WHERE email = '$user'";
+$sql = "SELECT user_id, password, is_admin FROM users WHERE email = '$user'";
 $results = $dbConn->query($sql);
 
 //Pulling the password and role from the table users where the email is the username (I've committed to calling it username now)
@@ -27,6 +27,7 @@ if ($results->num_rows > 0) {
     if ($input_hash === $password_hash) {
         $_SESSION['username'] = $user;
         $_SESSION['role'] = $role;
+        $_SESSION['user_id'] = $user_id;
 
         if ($role === '1') {
             //Here I made the mistake of leaving just 1 because it was looking for an int instead of the literal 1, added ' ' and got an admin to login to the
