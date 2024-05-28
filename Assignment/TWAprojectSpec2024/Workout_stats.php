@@ -18,9 +18,19 @@ session_start();
     <div class="Navigation">
         <a href="Workout_log.php">Workout log</a>
         <a href="Workout_history.php">Workout History</a>
+        <?php
+        session_start();
+        if (isset($_SESSION['username'])) {
+            echo "<a>Hello {$_SESSION['username']}</a>";
+        }
+        ?>
+        <?php
+        if (isset($_SESSION["username"])) {
+            echo "<a 'login_info' href='Last_Login.php'>Logout</a>";
+        }
+        ?>
     </div>
 
 
-    <a href="Last_Login.php">Logout!</a>
 
 </html>

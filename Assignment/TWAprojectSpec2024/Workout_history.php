@@ -9,7 +9,7 @@ just create the table and fill it with the data from the database and then let p
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Function Tracker: Workout Log</title>
+    <title>Function Tracker: Workout History</title>
     <link rel="stylesheet" href="../project/css/project_master.css">
     <script type="text/javascript" src="../project/javascript/project_Script.js"></script>
 </head>
@@ -23,12 +23,22 @@ has the data from the databse and once a filter is applied, its applying it to t
     <div class="Navigation">
         <a href="Workout_log.php">Workout log</a>
         <a href="Workout_stats.php">Workout Statistics</a>
+        <?php
+        session_start();
+        if (isset($_SESSION['username'])) {
+            echo "<a>Hello {$_SESSION['username']}</a>";
+        }
+        ?>
+        <?php
+        if (isset($_SESSION["username"])) {
+            echo "<a 'login_info' href='Last_Login.php'>Logout</a>";
+        }
+        ?>
     </div>
+    <div class="form-box">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label for="start_date">Start Date:</label>
         <input type="date" id="start_date" name="start_date">
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date">
         <label for="exercise_type">Exercise Type:</label>
         <select id="exercise_type" name="exercise_type">
             <option value="">All</option>
@@ -38,7 +48,8 @@ has the data from the databse and once a filter is applied, its applying it to t
         </select>
         <input type="submit" name="submit" value="Filter">
     </form>
-    <a href="Last_Login.php">Logout!</a>
+    </div>
+  
     <br>
     <?php
     session_start();
@@ -48,43 +59,45 @@ has the data from the databse and once a filter is applied, its applying it to t
     #My brain started working, I'm not inputting data into user_id because I'm pulling it from the session
     #I can sort by $user
     
+    //Dynamic mail lists came up at work, I searched for dynamic PHP SQL queries and found https://www.php.net/manual/en/mysqli.multi-query.php
+    //Theory is, build a base query, which is SELECT * FROM workout WHERE user_id = ? to get all data for that user
+    //IF a date is input add an AND statement, IF an exercise is selected AND exercise then end with ORDER BY workout_date
+
+    //Theory failed, still stuck here. Need to spend some time reading about this and finding examples
+    
+
     if (isset($_POST['submit'])) {
         $start_date = ($_POST["start_date"]);
-        $end_date = ($_POST["end_date"]);
         $exercise = ($_POST["exercise_type"]);
+        
+        $sql = "SELECT * FROM workout WHERE user_id = ? AND exercise = ?";
 
-        if ($exercise == "") {
-            $sql = "SELECT * FROM workout WHERE user_id = $user ORDER BY workout_date";
-            $result = $dbConn->query($sql);
+        $result = $dbConn->query($sql);
+
+        //new day, new brain, made it an if statement to echo so that the table only appears when its queried but the query is wrong
+        if ($result->num_rows > 0) {
+            echo "<table>
+                <tr>
+                    <th>Workout Date</th>
+                    <th>Exercise</th>
+                    <th>Duration</th>
+                    <th>Distance</th>
+                    <th>Notes</th>
+                </tr>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                    <td>{$row["workout_date"]}</td>
+                    <td>{$row["exercise"]}</td>
+                    <td>{$row["duration"]}</td>
+                    <td>{$row["distance"]}</td>
+                    <td>{$row["notes"]}</td>
+                </tr>";
+            }
+            echo "</table>";
         } else {
-            $sql = "SELECT * FROM workout WHERE user_id = $user AND exercise = ?ORDER BY workout_date";
-            $result = $dbConn->query($sql);
+            echo "<p>No workouts found for the specified criteria.</p>";
         }
     }
-
-    #Select * is working but the filtering by exercise isnt
-    ?>
-
-<table>
-    <tr>
-        <th>Workout Date</th>
-        <th>Exercise</th>
-        <th>Duration</th>
-        <th>Distance</th>
-        <th>Notes</th>
-    </tr>
-    <?php
-    while ($row = $result->fetch_assoc()) { ?>
-        <tr>
-            <td><?php echo $row["workout_date"]; ?></td>
-            <td><?php echo $row["exercise_id"]; ?></td>
-            <td><?php echo $row["duration"]; ?></td>
-            <td><?php echo $row["distance"]; ?></td>
-            <td><?php echo $row["notes"]; ?></td>
-        </tr>
-    <?php } ?>
-</table>
-    <?php
     $dbConn->close();
     ?>
 <!--This table isn't working either by default, CSS is proably going to resolve the issue-->

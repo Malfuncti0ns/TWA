@@ -13,6 +13,8 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
 
 // This did prevent me from looking at in vscode locally but I've used the site manager to test, my thoughts more on getting
 // it to work where it's being tested more than locally on my workstations
+
+//Suddenly stopped working, will loop back
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,14 @@ if (isset($_GET['error']) && $_GET['error'] == 1) {
     <a href="Index.php"><img class="banner" src="../project/images/logo.png" alt="Function Tracker Logo"></a>
     <div class="Navigation">
         <a href="Registration.php">New User Registration</a>
-        <a href="Login_form.php">Login</a>
+        <?php
+        session_start();
+        if (isset($_SESSION['username'])) {
+            echo "<a>Hello {$_SESSION['username']}</a>";
+        } else {
+            echo "<a class='login-info' href='Login_form.php'>Login</a>";
+        }
+        ?>
     </div>
     <div class="form-box">
     <form action="login.php" method="post" onsubmit="return validateForm()">

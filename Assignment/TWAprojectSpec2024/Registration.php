@@ -14,7 +14,7 @@
     <div class="Navigation">
         <a href="login_form.php">Login</a>
     </div>
-
+    <div class="form-box">
     <form class="new_user" action="Register.php" method="post" onsubmit="return validateForm()">
         <label for="fname">First Name:</label><br>
         <input type="text" id="fname" name="fname" onblur="checkEmptyInput(this);"><br>
@@ -32,8 +32,9 @@
         <input type="number" step="0.01" id="weight" name="weight" pattern="\d{1,3}" maxlength="3"><br>
         <label for="height">Height(CM):</label><br>
         <input type="text" id="height" name="height" pattern="\d{1,3}" maxlength="3"><br>
-        <input type="submit" value="Complete Registration"><input type="reset" value="Reset">
+        <input type="submit" value="Complete Registration">
     </form>
+    </div>
 </body>
 
 </html>

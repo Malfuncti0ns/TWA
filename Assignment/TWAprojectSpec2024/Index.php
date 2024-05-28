@@ -18,6 +18,17 @@
     <div class="Navigation">
         <a href="Registration.php">New User Registration</a>
         <a href="Login_form.php">Login</a>
+        <?php
+        session_start();
+        if (isset($_SESSION['username'])) {
+            echo "<a>Hello {$_SESSION['username']}</a>";
+        }
+        ?>
+        <?php
+        if (isset($_SESSION["username"])) {
+            echo "<a 'login_info' href='Last_Login.php'>Logout</a>";
+        }
+        ?>
         <!--The idea here is to have a banner up the top or top left depending on size, then under it and along the page
         have each link in it's part along the top of the page, login at the end and index at the start with if I can get it working will only appear
         when a user has logged in otherwise push a DOM message when hitting the page as a guest to push back to index, registration or login-->
