@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Function Tracker: Workout Log</title>
+    <title>Function Tracker: Workout Statistics</title>
     <link rel="stylesheet" href="../project/css/project_master.css">
     <script type="text/javascript" src="../project/javascript/project_Script.js"></script>
 </head>
@@ -26,7 +26,7 @@ session_start();
         ?>
         <?php
         if (isset($_SESSION["username"])) {
-            echo "<a 'login_info' href='Last_Login.php'>Logout</a>";
+            echo "<a href='Last_Login.php'>Logout</a>";
         }
         ?>
     </div>

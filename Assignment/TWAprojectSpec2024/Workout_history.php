@@ -29,11 +29,7 @@ has the data from the databse and once a filter is applied, its applying it to t
             echo "<a>Hello {$_SESSION['username']}</a>";
         }
         ?>
-        <?php
-        if (isset($_SESSION["username"])) {
-            echo "<a 'login_info' href='Last_Login.php'>Logout</a>";
-        }
-        ?>
+        <a href="Last_Login.php">Logout</a>
     </div>
     <div class="form-box">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">

@@ -32,7 +32,7 @@ to make the index a php page since I've realised I'll need to maintain a session
         ?>
         <?php
         if (isset($_SESSION["username"])) {
-            echo "<a 'login_info' href='Last_Login.php'>Logout</a>";
+            echo "<a href='Last_Login.php'>Logout</a>";
         }
         ?>
     </div>

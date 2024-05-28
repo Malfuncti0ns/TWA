@@ -26,7 +26,7 @@
         ?>
         <?php
         if (isset($_SESSION["username"])) {
-            echo "<a 'login_info' href='Last_Login.php'>Logout</a>";
+            echo "<a href='Last_Login.php'>Logout</a>";
         }
         ?>
         <!--The idea here is to have a banner up the top or top left depending on size, then under it and along the page
