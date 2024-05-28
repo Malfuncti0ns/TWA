@@ -48,7 +48,6 @@ has the data from the databse and once a filter is applied, its applying it to t
   
     <br>
     <?php
-    session_start();
     require_once ("dbconn.php");
     $user = $_SESSION['user_id'];
 
@@ -63,10 +62,9 @@ has the data from the databse and once a filter is applied, its applying it to t
     
 
     if (isset($_POST['submit'])) {
-        $start_date = ($_POST["start_date"]);
         $exercise = ($_POST["exercise_type"]);
         
-        $sql = "SELECT * FROM workout WHERE user_id = ? AND exercise = ?";
+        $sql = "SELECT * FROM workout WHERE user_id = ? AND exercise_id = $exercise";
 
         $result = $dbConn->query($sql);
 
@@ -83,7 +81,7 @@ has the data from the databse and once a filter is applied, its applying it to t
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
                     <td>{$row["workout_date"]}</td>
-                    <td>{$row["exercise"]}</td>
+                    <td>{$row["exercise_id"]}</td>
                     <td>{$row["duration"]}</td>
                     <td>{$row["distance"]}</td>
                     <td>{$row["notes"]}</td>
