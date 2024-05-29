@@ -30,36 +30,42 @@
     <?php
     require_once ("dbconn.php");
     $user = $_SESSION['user_id'];
-    $sql = "SELECT * FROM workout WHERE user_id = $user";
+    $sql = "SELECT workout.*, exercise.name FROM workout INNER JOIN exercise WHERE user_id = $user";
     $result = $dbConn->query($sql);
-
-    //Going to pull all the data from the page, then get each row and do the math on it, similar to what I would do if I was
-    //working something out in python, give a variable (x for example) = val 1 / val 2 and then echo the result
-    
-    if ($result->num_rows > 0) {
-        echo "<table>
-        <tr>
-            <th>Workout Date</th>
-            <th>Exercise</th>
-            <th>Duration</th>
-            <th>Distance</th>
-            <th>Notes</th>
-        </tr>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>
-            <td>{$row["workout_date"]}</td>
-            <td>{$row["exercise_id"]}</td>
-            <td>{$row["duration"]}</td>
-            <td>{$row["distance"]}</td>
-            <td>{$row["notes"]}</td>
-        </tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "<p>No workouts found for the specified criteria.</p>";
-    }
-    $dbConn->close();
     ?>
+    <!--Going to pull all the data from the page, then get each row and do the math on it, similar to what I would do if I was
+    working something out in python, give a variable (x for example) = val 1 / val 2 and then echo the result
+    The table itself is being a pain though and not appearing as a table, its just a straight line. Lets see if removing css is the root cause
+
+    The SQL is pulling all the data, need to only have the user_id that matches the session and the exercise ID matching. Trying to remember my joins
+    was my worst part of the database subject I did a few years ago-->
+
+    <!--Join is working to pull the name but the data is wrong, it's adding a workout for each category and twice -->
+
+    <!--CSS was the issue, it was inherting from the body, inspecting is key but now I need the name of the exercise not just the number-->
+
+    <div class="table_design">
+        <table>
+            <tr>
+                <th>Workout Date</th>
+                <th>Exercise Name</th>
+                <th>Duration (Mins)</th>
+                <th>Distance (KM)</th>
+            </tr>
+            <?php
+            while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $row["workout_date"] ?></td>
+                    <td><?php echo $row["name"] ?></td>
+                    <td><?php echo $row["duration"] ?></td>
+                    <td><?php echo $row["distance"] ?></td>
+                </tr>
+
+            <?php }
+            $dbConn->close();
+            ?>
+        </table>
+    </div>
 </body>
 
 </html>

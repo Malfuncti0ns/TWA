@@ -32,20 +32,20 @@ has the data from the databse and once a filter is applied, its applying it to t
         <a href="Last_Login.php">Logout</a>
     </div>
     <div class="form-box">
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date">
-        <label for="exercise_type">Exercise Type:</label>
-        <select id="exercise_type" name="exercise_type">
-            <option value="">All</option>
-            <option value="1">Walking</option>
-            <option value="2">Running</option>
-            <option value="3">Cycling</option>
-        </select>
-        <input type="submit" name="submit" value="Filter">
-    </form>
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date">
+            <label for="exercise_type">Exercise Type:</label>
+            <select id="exercise_type" name="exercise_type">
+                <option value="">All</option>
+                <option value="1">Walking</option>
+                <option value="2">Running</option>
+                <option value="3">Cycling</option>
+            </select>
+            <input type="submit" name="submit" value="Filter">
+        </form>
     </div>
-  
+
     <br>
     <?php
     require_once ("dbconn.php");
@@ -57,44 +57,40 @@ has the data from the databse and once a filter is applied, its applying it to t
     //Dynamic mail lists came up at work, I searched for dynamic PHP SQL queries and found https://www.php.net/manual/en/mysqli.multi-query.php
     //Theory is, build a base query, which is SELECT * FROM workout WHERE user_id = ? to get all data for that user
     //IF a date is input add an AND statement, IF an exercise is selected AND exercise then end with ORDER BY workout_date
-
+    
     //Theory failed, still stuck here. Need to spend some time reading about this and finding examples
     
 
     if (isset($_POST['submit'])) {
         $exercise = ($_POST["exercise_type"]);
-        
+
         $sql = "SELECT * FROM workout WHERE user_id = ? AND exercise_id = $exercise";
 
         $result = $dbConn->query($sql);
-
-        //new day, new brain, made it an if statement to echo so that the table only appears when its queried but the query is wrong
-        if ($result->num_rows > 0) {
-            echo "<table>
-                <tr>
-                    <th>Workout Date</th>
-                    <th>Exercise</th>
-                    <th>Duration</th>
-                    <th>Distance</th>
-                    <th>Notes</th>
-                </tr>";
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>
-                    <td>{$row["workout_date"]}</td>
-                    <td>{$row["exercise_id"]}</td>
-                    <td>{$row["duration"]}</td>
-                    <td>{$row["distance"]}</td>
-                    <td>{$row["notes"]}</td>
-                </tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "<p>No workouts found for the specified criteria.</p>";
-        }
     }
-    $dbConn->close();
     ?>
-<!--This table isn't working either by default, CSS is proably going to resolve the issue-->
+    <div class="table_design">
+        <table>
+            <tr>
+                <th>Workout Date</th>
+                <th>Exercise</th>
+                <th>Duration</th>
+                <th>Distance</th>
+                <th>Notes</th>
+            </tr>
+            <?php
+            while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $row["workout_date"] ?></td>
+                    <td><?php echo $row["exercise_id"] ?></td>
+                    <td><?php echo $row["duration"] ?></td>
+                    <td><?php echo $row["distance"] ?></td>
+                    <td><?php echo $row["notes"] ?></td>
+                </tr>
+
+            <?php }
+            $dbConn->close();
+            ?>
 
 </body>
 
