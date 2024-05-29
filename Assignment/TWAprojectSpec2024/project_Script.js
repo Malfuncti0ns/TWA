@@ -6,27 +6,19 @@ function checkEmptyInput(inputItem) {
         inputItem.style.background = "#e6f9ff";
     }
 }
-//Re-used from week6 validation, not quite my final product but at least indicates that the JS is working
 
 function validateForm() {
     var user = document.getElementById("username").value;
     var pass = document.getElementById("password").value;
     var firstname = document.getElementById("fname").value;
-    var lastname = docuemnt.getElementById("lname").value;
+    var lastname = document.getElementById("lname").value;
     var age = document.getElementById("age").value;
     var weight = document.getElementById("weight").value;
     var height = document.getElementById("height").value;
-    var exercise = document.getElementById("exercise").value;
-    var duration = document.getElementById("duration").value;
-    var duration = document.getElementById("distance").value;
-    var notes = document.getElementById("notes").value;
     var letters = /^[a-zA-Z]*$/;
-    var emailpat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    var emailpat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     var numbers = /^[0-9]*$/;
-    var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-    //These were my baseline for an email check, instead of checking for a var of letters, numbers and an @ symbol, why not check a pattern?
-    //setting up an order to the check so "a-z & numbers" + @ + . "a-z" (Numbers can be used in a domain but not common practice and also outside of scope for this case)
-    //Guide from stackoverflow https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
+
 
     if (user === "") {
         alert("Please enter a username");
@@ -42,61 +34,77 @@ function validateForm() {
         alert("Please enter a password");
         return false;
     }
-    //Above was for my first run through for the login for but can be used again for registration since they are the same values and requriements
 
-    if (pass.length < 8){
+
+    if (pass.length < 8) {
         alert("Password must be at least 8 characters long");
         return false;
     }
-    
+
     if (firstname === "") {
         alert("Please enter a first name");
         return false;
     }
 
-    if(!letters.test(firstname)){
+    if (!letters.test(firstname)) {
         alert("Please enter a valid first name");
+        return false;
     }
 
-    if (lastname === ""){
+    if (lastname === "") {
         alert("Please enter a valid last name");
         return false;
     }
 
-    if(!letters.test(lastname)){
+    if (!letters.test(lastname)) {
         alert("Please enter a valid last name");
+        return false;
     }
-
-    //Tests below for valid input from age, weight and height because I'm using a text box instead of number
-    if(!numbers.test(age)){
+    if (!numbers.test(age)) {
         alert("Please enter a valid age");
+        return false;
     }
 
-    if(!numbers.test(weight)){
+    if (!numbers.test(weight)) {
         alert("Please enter a valid weight");
+        return false;
     }
 
-    if(!numbers.test(height)){
+    if (!numbers.test(height)) {
         alert("Please enter a valid height");
+        return false;
     }
 
-    if(!exercise){
+    return true;
+}
+
+function validateWorkout() {
+
+    var exercise = document.getElementById("exercise").value;
+    var duration = document.getElementById("duration").value;
+    var distance = document.getElementById("distance").value;
+    var notes = document.getElementById("notes").value;
+
+    var numbers = /^[0-9]*$/;
+    var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+
+    if (!exercise) {
         alert("Please select an exercise");
+        return false;
     }
 
-    if(!numbers.test(duration)){
+    if (!numbers.test(duration)) {
         alert("Please enter only numbers");
+        return false;
     }
 
-    if(!numbers.test(distance)){
+    if (!numbers.test(distance)) {
         alert("Please enter only numbers");
+        return false;
     }
 
-    if(!numbers.test(notes)){
-        alert("Please enter only numbers");
-    }
-
-    if (specialChars.test(text)) {
+    if (specialChars.test(notes)) {
         alert("No special characters in notes");
+        return false;
     }
 }

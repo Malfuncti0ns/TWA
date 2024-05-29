@@ -35,7 +35,7 @@ to make the index a php page since I've realised I'll need to maintain a session
         </div>
   
     <div class="form-box">
-        <form class="log_workout" action="log_it_in_eddie.php" method="post" onsubmit="return validateForm()">
+        <form class="log_workout" action="log_it_in_eddie.php" method="post" onsubmit="return validateWorkout()">
             <label for="date">Workout Date and Time:</label>
             <input type="datetime-local" id="date" name="date" onblur="checkEmptyInput(this);">
             <br>
