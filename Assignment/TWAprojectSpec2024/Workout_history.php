@@ -31,7 +31,7 @@ has the data from the databse and once a filter is applied, its applying it to t
         }
         ?>
         <?php
-        if (isset($_SESSION['last_login'])){
+        if (isset($_SESSION['last_login'])) {
             echo "<a>Last login: {$_SESSION['last_login']}</a>";
         }
         ?>
@@ -43,7 +43,7 @@ has the data from the databse and once a filter is applied, its applying it to t
             <input type="date" id="start_date" name="start_date">
             <label for="exercise_type">Exercise Type:</label>
             <select id="exercise_type" name="exercise_type">
-                <option value="">All</option>
+                <option value="*">All</option>
                 <option value="1">Walking</option>
                 <option value="2">Running</option>
                 <option value="3">Cycling</option>
@@ -70,8 +70,10 @@ has the data from the databse and once a filter is applied, its applying it to t
     if (isset($_POST['submit'])) {
         $exercise = ($_POST["exercise_type"]);
 
-        $sql = "SELECT * FROM workout WHERE user_id = ? AND exercise_id = $exercise";
+        $sql = "SELECT workout_id, workout_date, exercise_id, duration, distance, notes FROM workout WHERE user_id = $user";
 
+        //Query is working to display results, all is still not working but I'm happy it's giving me any result 
+    
         $result = $dbConn->query($sql);
     }
     ?>
@@ -97,7 +99,8 @@ has the data from the databse and once a filter is applied, its applying it to t
             <?php }
             $dbConn->close();
             ?>
-
+        </table>
+    </div>
 </body>
 
 </html>
