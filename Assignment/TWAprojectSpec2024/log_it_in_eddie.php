@@ -18,12 +18,12 @@ $distance = $_POST["distance"];
 $notes = $_POST["notes"] ? $_POST["notes"] : NULL;
 
 
-//echo "User ID: " . $user . "<br>";
-//echo "Workout Date: " . $workout_date . "<br>";
-//echo "Exercise ID: " . $exercise_id . "<br>";
-//echo "Duration: " . $duration . "<br>";
-//echo "Distance: " . $distance . "<br>";
-//echo "Notes: " . $notes . "<br>";
+echo "User ID: " . $user . "<br>";
+echo "Workout Date: " . $workout_date . "<br>";
+echo "Exercise ID: " . $exercise_id . "<br>";
+echo "Duration: " . $duration . "<br>";
+echo "Distance: " . $distance . "<br>";
+echo "Notes: " . $notes . "<br>";
 
 //Finally had the bright idea to see what was being fed into the DB because it wasn't happy with what I had
 //after fixing the exercise ID to be a number with the selection, I saw that it was expecting a user ID

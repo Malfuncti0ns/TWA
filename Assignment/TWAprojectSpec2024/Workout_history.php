@@ -26,7 +26,13 @@ has the data from the databse and once a filter is applied, its applying it to t
         <?php
         session_start();
         if (isset($_SESSION['username'])) {
-            echo "<a>Hello {$_SESSION['username']}</a>";
+            $date = date("d-m-Y H:i:s");
+            echo "<a>Hello {$_SESSION['first_name']} todays date is $date </a>";
+        }
+        ?>
+        <?php
+        if (isset($_SESSION['last_login'])){
+            echo "<a>Last login: {$_SESSION['last_login']}</a>";
         }
         ?>
         <a href="Last_Login.php">Logout</a>

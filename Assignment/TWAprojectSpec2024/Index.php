@@ -21,7 +21,8 @@
         <?php
         session_start();
         if (isset($_SESSION['username'])) {
-            echo "<a>Hello {$_SESSION['username']}</a>";
+            $date = date("d-m-Y H:i:s");
+            echo "<a>Hello {$_SESSION['first_name']} todays date is $date </a>";
         }
         ?>
         <?php

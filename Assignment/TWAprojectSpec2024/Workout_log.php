@@ -20,20 +20,25 @@ to make the index a php page since I've realised I'll need to maintain a session
     <div class="Navigation">
         <a href="Workout_history.php">Workout History</a>
         <a href="Workout_stats.php">Workout Statistics</a>
-        
+
         <?php
         session_start();
         if (isset($_SESSION['username'])) {
-            echo "<a>Hello {$_SESSION['username']}</a>";
+            $date = date("d-m-Y H:i:s");
+            echo "<a>Hello {$_SESSION['first_name']} todays date is $date </a>";
         }
         ?>
         <?php
-        if (isset($_SESSION["username"])) {
+        if (isset($_SESSION['last_login'])) {
+            echo "<a>Last login: {$_SESSION['last_login']}</a>";
+        }
+        ?>
+        <?php
+        if (isset($_SESSION['username'])) {
             echo "<a href='Last_Login.php'>Logout</a>";
         }
         ?>
-        </div>
-  
+    </div>
     <div class="form-box">
         <form class="log_workout" action="log_it_in_eddie.php" method="post" onsubmit="return validateWorkout()">
             <label for="date">Workout Date and Time:</label>
