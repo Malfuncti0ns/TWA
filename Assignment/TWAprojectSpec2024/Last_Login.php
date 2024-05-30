@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('dbconn.php');
+// Matthew Chiandotto 17800541
 //testing this script, to see if the DB updates logout times. 
 //Will run when a logout button is on the Admin or Workout page
 

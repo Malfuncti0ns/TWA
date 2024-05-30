@@ -1,4 +1,5 @@
 <?php
+//Matthew Chiandotto 17800541
 
 //This can all be pretty much transfered over from the user registration since it's not updating
 //it's only adding new unique users as admins

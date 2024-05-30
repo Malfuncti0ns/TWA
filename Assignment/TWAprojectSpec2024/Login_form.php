@@ -3,6 +3,7 @@ $error_message = "";
 if (isset($_GET['error']) && $_GET['error'] == 1) {
     $error_message = "Invalid username or password";
 }
+// Matthew Chiandotto 17800541
 // Found at https://stackoverflow.com/questions/20717032/login-error-message-in-php
 // This will check the php script (Login.php) for an error flag, in this case error 1, if the error
 // is found then it will allocate the variable to the error message, then in the HTML I can include a

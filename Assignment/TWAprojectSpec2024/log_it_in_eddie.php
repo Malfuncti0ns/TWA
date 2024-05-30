@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once ('dbconn.php');
-
+// Matthew Chiandotto 17800541
 //added to test if user was logged in, user not appearing so there is a break in the session from the login to workout_log
 
 //didn't have session_start in the workout_log.php page, that might be the break
