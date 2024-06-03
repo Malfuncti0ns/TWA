@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Question 4 Form</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Orders by Customer</h1>
+  <p>Enter a Customer ID and then select whether you want to view orders that have been shipped or not shipped:</p>
+  <form id="Q4form" action="question4.php" method="post">
+    <p>
+      <label for="custID">Customer ID:</label><input type="text" id="custID" name="customerNum">
+    </p>
+    <p><label for="shipped">Show me</label>
+      <select id="shipped" name="shipped">
+        <option value="0">--please choose--</option>
+        <option value="Y">Shipped</option>
+        <option value="N">Not-Shipped</option>
+      </select>
+      &nbsp;orders for this customer<br>
+      <input type="submit" value="Show Orders" name="submit">
+    </p>
+  </form>
+
+  <p>For testing purposes here are some of the Customer IDs:</p>
+  <table>
+    <tr><th>Customer ID</th><th>Num Shipped</th><th>Num Not Shipped</th></tr>
+    <tr><td>123456</td><td>5</td><td>0</td></tr>
+    <tr><td>333333</td><td>3</td><td>2</td></tr>
+    <tr><td>777777</td><td>2</td><td>0</td></tr>
+    <tr><td>900900</td><td>0</td><td>1</td></tr>
+    <tr><td>345678</td><td>0</td><td>2</td></tr>
+    <tr><td>444333</td><td>2</td><td>1</td></tr>
+    <tr><td>777888</td><td>1</td><td>0</td></tr>
+    <tr><td>888888</td><td>0</td><td>1</td></tr>
+  </table>
+
+  </body>
+</html>
