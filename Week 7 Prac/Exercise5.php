@@ -47,7 +47,7 @@
                 echo "<h1>Products with stock > $quantitynum</h1>";
             ?>
             <table>
-                <tr></tr>
+                <tr>
                 <th>Name </th>
                 <th>Quantity In Stock</th>
                 <th>Price</th>
